@@ -10,9 +10,23 @@
         this.stockQuantity = stockQuantity;
         
     }
+
+    addToStock(quantity) {
+        this.stockQuantity += quantity;
+    }
+
+    removeFromStock(quantity) {
+        this.stockQuantity -= quantity;
+        this.logStockToConsole();
+    }
+
+    logStockToConsole() {
+        console.log(`Current Stock for ${this.productName} is now ${this.stockQuantity}.`);
+
+    }
  }
 
- const product1 = new Product('Geanta', 750, 1000);
+ const geanta = new Product('Geanta', 750, 1000);
 
  const product2 = {
     productName: 'Geanta',
@@ -20,8 +34,23 @@
     stockQuantity: 1000
  }
 
-const product3 = new Product('Hat', 350, 300);
+const hat = new Product('Hat', 350, 300);
  
-console.log(product1);
-console.log(product2);
-console.log(product3);
+console.log(geanta);
+console.log(geanta);
+console.log(hat);
+
+geanta.addToStock(100);
+console.log(geanta);
+
+hat.removeFromStock(200);
+console.log(hat);
+
+hat.addToStock(300);
+hat.removeFromStock(300);
+hat.addToStock(200);
+
+
+// Metodele sunt funcții asociate cu un obiect/clasa și pot fi apelate pentru a efectua anumite acțiuni pe obiect sau pentru a returna o valoare.
+// Metodele sunt definite în interiorul claselor, nu au nevoie de cuvantul cheie function ca în cazul funcțiilor și sunt utilizate pentru a organiza și a realiza operațiuni specifice asociate cu o clasa sau un obiect creat din acea clasa.
+
