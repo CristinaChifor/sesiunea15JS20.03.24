@@ -24,6 +24,24 @@
         console.log(`Current Stock for ${this.productName} is now ${this.stockQuantity}.`);
 
     }
+
+ }
+
+ class DiscountProduct extends Product {
+    constructor(productName, price, stockQuantity, discount) {
+        super(productName, price, stockQuantity);
+        this.discount = discount;
+    }
+
+    getDiscountedPrice() {
+        let price = this.price - (this.price * this.discount/100);
+        return price;
+    }
+
+    logDiscountedPrice() {
+        let discountedPrice = this.getDiscountedPrice();
+        console.log(`Price with discount for ${discountedPrice} is ${this.productName}.`);
+    }
  }
 
  const geanta = new Product('Geanta', 750, 1000);
@@ -50,7 +68,22 @@ hat.addToStock(300);
 hat.removeFromStock(300);
 hat.addToStock(200);
 
+const smartPhone = new DiscountProduct('Smartphone', 3000, 200, 20);
+console.log(smartPhone);
+
+smartPhone.removeFromStock(23);
+ const phoneDiscountedPrice = smartPhone.getDiscountedPrice();
+ console.log(`Price with discount for ${smartPhone.productName} is ${phoneDiscountedPrice}.`);
+ smartPhone.logDiscountedPrice;
+
 
 // Metodele sunt funcții asociate cu un obiect/clasa și pot fi apelate pentru a efectua anumite acțiuni pe obiect sau pentru a returna o valoare.
 // Metodele sunt definite în interiorul claselor, nu au nevoie de cuvantul cheie function ca în cazul funcțiilor și sunt utilizate pentru a organiza și a realiza operațiuni specifice asociate cu o clasa sau un obiect creat din acea clasa.
+
+
+// Mostenirea este un concept fundamental în OOP și se referă la capacitatea de a defini proprietăți și functionalitati comune ale unor clase într-o singura clasa numita clasa părinte pe care ulterior aceste clase le pot mosteni (extinde), astfel eliminand repetitia  
+// Mostenirea se realizeaza prin cuvintele cheie extends și super.
+// extends se folosește pentru a specifica clasa din care noua clasa mosteneste proprietățile
+// super() - se folosește pentru a apela constructorul clasei părinte
+// Sintaxa: class ClasaCopil extends ClasaParinte { constructor() { super() } }
 
